@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+
+    <!-- LEAFLET Files-->
+    <link rel="stylesheet" href="leaflet/leaflet.css" />
+    <script src="leaflet/leaflet.js"></script>
+
+    <!-- LEAFLET PAGE CSS -->
+    <style>
+		html, body {
+			height: 100%;
+			margin: 0;
+		}
+		.leaflet-container {
+			height: 400px;
+			width: 600px;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	</style>
+
+  </head>
+  <body>
+	
+<h2>Test Map</h2>
+
+    <div id="map" style="width: 600px; height: 400px;"></div>
+    <script>
+    
+        const map = L.map('map').setView([41.694, -8.26], 13);
+
+        // Mapa IN NATURE 
+        // https://www.google.com/maps/place/Alto+de+Santa+Isabel/@41.6943283,-8.2690398,2816m/data=!3m1!1e3!4m6!3m5!1s0xd251d79367d4595:0x341f76ffced8df5d!8m2!3d41.6937484!4d-8.2714287!16s%2Fg%2F11sn3304hl?entry=ttu
+        
+    
+        const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+    
+
+        // AREAS
+
+        // Marker - Alminhas - P0 - 41.702138,-8.2653998,49m
+        const marker = L.marker([41.702, -8.265]).addTo(map)
+         .bindPopup('<b>Alminhas!</b><br />I am a popup.').openPopup();
+
+        // Marker - Santa Isabel - 41.693792,-8.2715391,136m
+        const marker2 = L.marker([41.693, -8.271]).addTo(map)
+         .bindPopup('<b>Alm!</b><br />I am a popup.').openPopup();
+
+
+
+
+        // Circulo
+        /* const circle = L.circle([51.508, -0.11], {
+            color: 'red',
+            fillColor: '#f03',
+            fillOpacity: 0.5,
+            radius: 500
+        }).addTo(map).bindPopup('I am a circle.');
+
+
+        41.702138,-8.2653998,49m */
+
+
+        // Marker
+       /* const marker = L.marker([51.5, -0.09]).addTo(map)
+            .bindPopup('<b>Hello world!</b><br />I am a popup.').openPopup();
+41.702138,-8.2653998,49m
+        
+
+        // Polígono
+        const polygon = L.polygon([
+            [51.509, -0.08],
+            [51.503, -0.06],
+            [51.51, -0.047]
+        ]).addTo(map).bindPopup('I am a polygon.');
+    
+    
+        const popup = L.popup()
+            .setLatLng([51.513, -0.09])
+            .setContent('I am a standalone popup.')
+            .openOn(map);
+    */
+         /*   <!-- // Função de clique -->
+        function onMapClick(e) {
+            popup
+                .setLatLng(e.latlng)
+                .setContent(`You clicked the map at ${e.latlng.toString()}`)
+                .openOn(map);
+        }
+
+        */
+    
+        map.on('click', onMapClick);
+    
+    </script>
+    
+
+
+  </body>
+</html>
