@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HTML 5 Boilerplate</title>
+    <title>:: IN NATURE - Bike Park Terras de Bouro ::</title>
     <!-- <link rel="stylesheet" href="style.css"> -->
 
 
@@ -45,9 +45,13 @@
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
 
+        // ########    PISTAS   ###########################
+
+        // GEOJSON  - teste - https://leafletjs.com/examples/geojson/
+        // L.geoJSON(geojsonFeature).addTo(map);
 
 
-        // PONTOS DE REFERÊNCIA
+        // ########    PONTOS DE REFERÊNCIA   ###########################
 
         // Marker - Alminhas - P0 - 41.702138,-8.2653998,49m
         const marker = L.marker([41.702, -8.265]).addTo(map)
@@ -55,7 +59,7 @@
 
         // Marker - Santa Isabel - 41.693792,-8.2715391,136m
         const marker2 = L.marker([41.693792, -8.2715391]).addTo(map)
-         .bindPopup('<b>Monte de Santa Isabel</b><br />Início de várias pistas.').openPopup();
+         .bindPopup('<b>Monte de Santa Isabel</b><br />Início de várias pistas. (41.693792, -8.2715391)').openPopup();
 
         // 4 Caminhos
          const marker3 = L.marker([41.6886939, -8.2896087]).addTo(map)
@@ -65,23 +69,37 @@
         const marker4 = L.marker([41.696313, -8.2991541]).addTo(map)
          .bindPopup('<b>Coreto</b><br />Ponto de passagem, vista panorâmica e restaurante/bar, ponto de água potável.').openPopup();
 
-
-// EM FALTA
-        // Fontanário Cavalo
         // Sede da Associação
+        const marker5 = L.marker([41.7055952, -8.3029474]).addTo(map)
+        .bindPopup('<b>Sede In Nature / Bike Park Terras de Bouro</b><br />Sede da Associação In Nature, Transportes, Banhos, Lavagem de Bicicleta, ponto de água potável.').openPopup();
+
+        // Fontanário Cavalo
+        const marker6 = L.marker([41.7035938,-8.2871733]).addTo(map)
+        .bindPopup('<b>Fontanário do Cavalo</b><br />Ponto de Referência, Transportes, ponto de água potável.').openPopup();
+
+        
 
 
 
 
-        // Pontos de Partida
+        // ##########     Pontos de Partida       ########################
 
+        // Samantha Fox - Partida
+        // TODO - Mudar marcadores
 
-        // Pontos de Chegada
+        const markerPSF = L.marker([41.6888021, -8.296675,52]).addTo(map)
+        .bindPopup('<b>Samantha Fox - Início</b><br />Início do trilho.').openPopup();
+
+        // Pontos de Chegada TODO
+        //  TODO - Pontos de chegada dos trilhos
 
 
         // Transportes
 
 
+        // Restaurantes
+        
+        // Alojamento
 
 
 
@@ -91,19 +109,13 @@
             fillColor: '#f03',
             fillOpacity: 0.5,
             radius: 500
-        }).addTo(map).bindPopup('I am a circle.');
+        }).addTo(map).bindPopup('I am a circle.');   */
 
-
-        41.702138,-8.2653998,49m */
-
-
-        // Marker
-       /* const marker = L.marker([51.5, -0.09]).addTo(map)
-            .bindPopup('<b>Hello world!</b><br />I am a popup.').openPopup();
-41.702138,-8.2653998,49m
 
 
         // Polígono
+        
+        /*
         const polygon = L.polygon([
             [51.509, -0.08],
             [51.503, -0.06],
@@ -118,16 +130,12 @@
     */
 
 
-
-    
         function onMapClick(e) {
             popup
                 .setLatLng(e.latlng)
                 .setContent(`You clicked the map at ${e.latlng.toString()}`)
                 .openOn(map);
         }
-
-    
 
         map.on('click', onMapClick);
 
